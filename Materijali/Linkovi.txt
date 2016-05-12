@@ -1,0 +1,3 @@
+https://www.primatelabs.com/blog/2013/12/developing-a-cross-platform-benchmark/
+
+http://stackoverflow.com/questions/2996079/simple-cross-platform-code-benchmarking
