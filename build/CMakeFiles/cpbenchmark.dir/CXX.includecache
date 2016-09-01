@@ -1,0 +1,22 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/nino/Desktop/benchmark/p01.cpp
+iostream
+-
+string
+-
+list
+-
+ctime
+-
+ratio
+-
+chrono
+-
+

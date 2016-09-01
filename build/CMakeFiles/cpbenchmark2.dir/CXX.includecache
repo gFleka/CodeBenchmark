@@ -1,0 +1,20 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/nino/Desktop/benchmark/p02.cpp
+functional
+-
+list
+-
+chrono
+-
+thread
+-
+iostream
+-
+
