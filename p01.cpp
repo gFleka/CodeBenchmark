@@ -1,4 +1,4 @@
-// high_resolution_clock example
+//Cross Platform 2016 Benchmarking C++ Code
 #include <iostream>
 #include <string>
 #include <list>
