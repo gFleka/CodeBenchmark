@@ -14,6 +14,54 @@
 # EXTERNAL cache entries
 ########################
 
+//Boost accumulators library (debug)
+Boost_ACCUMULATORS_LIBRARY_DEBUG:FILEPATH=Boost_ACCUMULATORS_LIBRARY_DEBUG-NOTFOUND
+
+//Boost accumulators library (release)
+Boost_ACCUMULATORS_LIBRARY_RELEASE:FILEPATH=Boost_ACCUMULATORS_LIBRARY_RELEASE-NOTFOUND
+
+//Boost accumulator library (debug)
+Boost_ACCUMULATOR_LIBRARY_DEBUG:FILEPATH=Boost_ACCUMULATOR_LIBRARY_DEBUG-NOTFOUND
+
+//Boost accumulator library (release)
+Boost_ACCUMULATOR_LIBRARY_RELEASE:FILEPATH=Boost_ACCUMULATOR_LIBRARY_RELEASE-NOTFOUND
+
+//Boost allocators library (debug)
+Boost_ALLOCATORS_LIBRARY_DEBUG:FILEPATH=Boost_ALLOCATORS_LIBRARY_DEBUG-NOTFOUND
+
+//Boost allocators library (release)
+Boost_ALLOCATORS_LIBRARY_RELEASE:FILEPATH=Boost_ALLOCATORS_LIBRARY_RELEASE-NOTFOUND
+
+//Boost chrono library (debug)
+Boost_CHRONO_LIBRARY_DEBUG:FILEPATH=/usr/lib/i386-linux-gnu/libboost_chrono.so
+
+//Boost chrono library (release)
+Boost_CHRONO_LIBRARY_RELEASE:FILEPATH=/usr/lib/i386-linux-gnu/libboost_chrono.so
+
+//The directory containing a CMake configuration file for Boost.
+Boost_DIR:PATH=Boost_DIR-NOTFOUND
+
+//Boost function library (debug)
+Boost_FUNCTION_LIBRARY_DEBUG:FILEPATH=Boost_FUNCTION_LIBRARY_DEBUG-NOTFOUND
+
+//Boost function library (release)
+Boost_FUNCTION_LIBRARY_RELEASE:FILEPATH=Boost_FUNCTION_LIBRARY_RELEASE-NOTFOUND
+
+//Path to a file.
+Boost_INCLUDE_DIR:PATH=/usr/include
+
+//Boost library directory DEBUG
+Boost_LIBRARY_DIR_DEBUG:PATH=/usr/lib/i386-linux-gnu
+
+//Boost library directory RELEASE
+Boost_LIBRARY_DIR_RELEASE:PATH=/usr/lib/i386-linux-gnu
+
+//Boost system library (debug)
+Boost_SYSTEM_LIBRARY_DEBUG:FILEPATH=/usr/lib/i386-linux-gnu/libboost_system.so
+
+//Boost system library (release)
+Boost_SYSTEM_LIBRARY_RELEASE:FILEPATH=/usr/lib/i386-linux-gnu/libboost_system.so
+
 //Path to a program.
 CMAKE_AR:FILEPATH=/usr/bin/ar
 
@@ -176,6 +224,38 @@ cpbenchmark_SOURCE_DIR:STATIC=/home/nino/Desktop/benchmark
 # INTERNAL cache entries
 ########################
 
+//ADVANCED property for variable: Boost_ACCUMULATORS_LIBRARY_DEBUG
+Boost_ACCUMULATORS_LIBRARY_DEBUG-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: Boost_ACCUMULATORS_LIBRARY_RELEASE
+Boost_ACCUMULATORS_LIBRARY_RELEASE-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: Boost_ACCUMULATOR_LIBRARY_DEBUG
+Boost_ACCUMULATOR_LIBRARY_DEBUG-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: Boost_ACCUMULATOR_LIBRARY_RELEASE
+Boost_ACCUMULATOR_LIBRARY_RELEASE-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: Boost_ALLOCATORS_LIBRARY_DEBUG
+Boost_ALLOCATORS_LIBRARY_DEBUG-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: Boost_ALLOCATORS_LIBRARY_RELEASE
+Boost_ALLOCATORS_LIBRARY_RELEASE-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: Boost_CHRONO_LIBRARY_DEBUG
+Boost_CHRONO_LIBRARY_DEBUG-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: Boost_CHRONO_LIBRARY_RELEASE
+Boost_CHRONO_LIBRARY_RELEASE-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: Boost_DIR
+Boost_DIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: Boost_FUNCTION_LIBRARY_DEBUG
+Boost_FUNCTION_LIBRARY_DEBUG-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: Boost_FUNCTION_LIBRARY_RELEASE
+Boost_FUNCTION_LIBRARY_RELEASE-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: Boost_INCLUDE_DIR
+Boost_INCLUDE_DIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: Boost_LIBRARY_DIR_DEBUG
+Boost_LIBRARY_DIR_DEBUG-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: Boost_LIBRARY_DIR_RELEASE
+Boost_LIBRARY_DIR_RELEASE-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: Boost_SYSTEM_LIBRARY_DEBUG
+Boost_SYSTEM_LIBRARY_DEBUG-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: Boost_SYSTEM_LIBRARY_RELEASE
+Boost_SYSTEM_LIBRARY_RELEASE-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_AR
 CMAKE_AR-ADVANCED:INTERNAL=1
 //This is the directory where this CMakeCache.txt was created
@@ -301,4 +381,20 @@ CMAKE_STRIP-ADVANCED:INTERNAL=1
 CMAKE_UNAME:INTERNAL=/bin/uname
 //ADVANCED property for variable: CMAKE_VERBOSE_MAKEFILE
 CMAKE_VERBOSE_MAKEFILE-ADVANCED:INTERNAL=1
+//Components requested for this build tree.
+_Boost_COMPONENTS_SEARCHED:INTERNAL=accumulator;accumulators;allocators;chrono;function;system
+//Last used Boost_INCLUDE_DIR value.
+_Boost_INCLUDE_DIR_LAST:INTERNAL=/usr/include
+//Last used Boost_LIBRARY_DIR_DEBUG value.
+_Boost_LIBRARY_DIR_DEBUG_LAST:INTERNAL=/usr/lib/i386-linux-gnu
+//Last used Boost_LIBRARY_DIR_RELEASE value.
+_Boost_LIBRARY_DIR_RELEASE_LAST:INTERNAL=/usr/lib/i386-linux-gnu
+//Last used Boost_NAMESPACE value.
+_Boost_NAMESPACE_LAST:INTERNAL=boost
+//Last used Boost_USE_MULTITHREADED value.
+_Boost_USE_MULTITHREADED_LAST:INTERNAL=TRUE
+//Last used Boost_USE_STATIC_LIBS value.
+_Boost_USE_STATIC_LIBS_LAST:INTERNAL=OFF
+//Last used Boost_USE_STATIC_RUNTIME value.
+_Boost_USE_STATIC_RUNTIME_LAST:INTERNAL=OFF
 

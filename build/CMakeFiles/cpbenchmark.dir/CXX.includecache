@@ -19,4 +19,16 @@ ratio
 -
 chrono
 -
+functional
+-
+boost/accumulators/accumulators.hpp
+-
+boost/accumulators/statistics/stats.hpp
+-
+boost/accumulators/statistics/mean.hpp
+-
+boost/accumulators/statistics/min.hpp
+-
+boost/accumulators/statistics.hpp
+-
 

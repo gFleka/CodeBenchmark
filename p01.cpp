@@ -5,12 +5,23 @@
 #include <ctime>
 #include <ratio>
 #include <chrono>
+#include <functional>
+#include <boost/accumulators/accumulators.hpp>
+#include <boost/accumulators/statistics/stats.hpp>
+#include <boost/accumulators/statistics/mean.hpp>
+#include <boost/accumulators/statistics/min.hpp>
+#include <boost/accumulators/statistics.hpp>
+
 
 using namespace std::chrono;
+using namespace boost::accumulators;
+
 
 struct benchmark_test{
  std::string title;
- int repetitions;  
+ int iterations;
+ int runs;
+ std::function<void()> call;
 };
 
 class benchmark
@@ -19,44 +30,104 @@ class benchmark
   
 private:
   std::list<benchmark_test> benchmarks_list;
+  
 
 public:
-  void add(std::string title, int repetitions) //TODO Dodati ovdje da kao argument prima funkciju koja se onda može pozivat i izvršavati
+  
+  //Adds a new benchmark test
+  void add(std::string title, int iterations, int runs) //TODO Dodati ovdje da kao argument prima funkciju koja se onda može pozivat i izvršavati
   {
     benchmark_test temp;
     temp.title=title;
-    temp.repetitions=repetitions;
-    benchmarks_list.push_back(temp);    
+    temp.iterations=iterations;
+    temp.runs=runs;
+    //TODO Ovo temp.function=function;
+    benchmarks_list.push_back(temp);   
+    
   }
   
-  void remove(std::string title)
+  //Adds a new benchmark with default # of iterations and runs
+  void add(std::string title)
   {
-    //TODO Add remove method to remove single benchmarks from the test
+    benchmark_test temp;
+    temp.title=title;
+    temp.iterations=1000;
+    temp.runs=10;
+    //TODO Ovo temp.function=function;
+    benchmarks_list.push_back(temp);
   }
   
+  //Runs all added benchmark tests in the order they were added
   void run(){
+    
+    duration<double>time_span;
+    duration<double>min_time_span;
+    
+    std::cout << "|Running " << benchmarks_list.size() << " benchmark/s." << std::endl;
+    //Loop through all individual benchmarks
     for( auto & ibenchmark : benchmarks_list )
     {
-      high_resolution_clock::time_point t1 = high_resolution_clock::now();
-      std::cout << "Test Name: " << ibenchmark.title << std::endl;
-      std::cout << "printing out" << ibenchmark.repetitions << " stars...\n";
-      for (int i=0; i<ibenchmark.repetitions; ++i) std::cout << "*";
-      std::cout << std::endl;
+      accumulator_set < double, stats<tag::mean, tag::min, tag::max > >acc_all;
+      std::cout << "| Benchmark Name: " << ibenchmark.title << std::endl;
+      std::cout << "| " << ibenchmark.runs << " runs and " << ibenchmark.iterations << " iterations to perform: " << std::endl;
+      std::cout << "| Benchmark Running" << std::endl;
+      std::cout << "|----------------------------------------" << std::endl;
+      //Loop through all runs for a benchmark
+      for(int i=0; i<ibenchmark.runs; i++)
+      {
+	accumulator_set < double, stats<tag::min > > acc;
+	//Loop through all iterations in one run
+	//Every run, # of iterations are performed, median is taken and accumulated to acc_all
+	for (int j=0; j<ibenchmark.iterations; j++)
+	{
+	  
+	  high_resolution_clock::time_point t1 = high_resolution_clock::now();
+	  //Test Code Insert Here
+	  for(int k=0; k<10000; k++)
+	  {	    
+	    if(i!=-20)
+	    {
+	      int a = i+j;
+	    }
+	  }
+	  //ibenchmark.function(); 
+	  //Sample Test Code
+	  //std::cout << "";
+	  //Test Code Ends Here
+	  high_resolution_clock::time_point t2 = high_resolution_clock::now();
+	  time_span = duration_cast<duration<double>>(t2 - t1);
+	  double time_seconds = time_span.count()*100000;
+	  acc(time_seconds);
+	}
+	acc_all(min(acc));
+	
+      }
+      
 
-      high_resolution_clock::time_point t2 = high_resolution_clock::now();
-
-      duration<double> time_span = duration_cast<duration<double>>(t2 - t1);
-
-      std::cout << "It took me " << time_span.count() << " seconds.";
+      std::cout << "| Average time: " << mean(acc_all) << " us." << std::endl;
+      std::cout << "| Fastest time: " << min(acc_all) << " us." << std::endl; 
+      std::cout << "| Slowest time: " << max(acc_all) << " us." << std::endl;
+      std::cout << "|----------------------------------------" << std::endl;
       std::cout << std::endl;
     }
   }
 };
 
+//Test function to test the function reference in the benchmark::run()
+void testFunction()
+{
+  for(int i=0;i<500;i++)
+  {
+    std::cout << ""; //Just a test code
+    
+  }
+}
+
 int main ()
 {
   benchmark testBenchmark;
-  testBenchmark.add("++Prvi Test Naziv++",20);
+  testBenchmark.add("Prvi test",100, 10);
+  testBenchmark.add("Drugi test",100, 10);
   testBenchmark.run();
   
 
