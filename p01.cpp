@@ -13,6 +13,7 @@
 #include <boost/accumulators/statistics.hpp>
 
 
+
 using namespace std::chrono;
 using namespace boost::accumulators;
 
@@ -21,7 +22,7 @@ struct benchmark_test{
  std::string title;
  int iterations;
  int runs;
- std::function<void()> call;
+ void (*functiontocall)();
 };
 
 class benchmark
@@ -35,12 +36,13 @@ private:
 public:
   
   //Adds a new benchmark test
-  void add(std::string title, int iterations, int runs) //TODO Dodati ovdje da kao argument prima funkciju koja se onda može pozivat i izvršavati
+  void add(std::string title, int iterations, int runs, void (*function)()) //TODO Dodati ovdje da kao argument prima funkciju koja se onda može pozivat i izvršavati
   {
     benchmark_test temp;
     temp.title=title;
     temp.iterations=iterations;
     temp.runs=runs;
+    temp.functiontocall=function;
     //TODO Ovo temp.function=function;
     benchmarks_list.push_back(temp);   
     
@@ -63,6 +65,7 @@ public:
     duration<double>time_span;
     duration<double>min_time_span;
     
+    std::cout << "________________________________________" << std::endl;
     std::cout << "|Running " << benchmarks_list.size() << " benchmark/s." << std::endl;
     //Loop through all individual benchmarks
     for( auto & ibenchmark : benchmarks_list )
@@ -82,21 +85,16 @@ public:
 	{
 	  
 	  high_resolution_clock::time_point t1 = high_resolution_clock::now();
+
 	  //Test Code Insert Here
-	  for(int k=0; k<10000; k++)
-	  {	    
-	    if(i!=-20)
-	    {
-	      int a = i+j;
-	    }
-	  }
+	  ibenchmark.functiontocall();
 	  //ibenchmark.function(); 
 	  //Sample Test Code
 	  //std::cout << "";
 	  //Test Code Ends Here
 	  high_resolution_clock::time_point t2 = high_resolution_clock::now();
 	  time_span = duration_cast<duration<double>>(t2 - t1);
-	  double time_seconds = time_span.count()*100000;
+	  double time_seconds = time_span.count()*1000000;
 	  acc(time_seconds);
 	}
 	acc_all(min(acc));
@@ -107,6 +105,9 @@ public:
       std::cout << "| Average time: " << mean(acc_all) << " us." << std::endl;
       std::cout << "| Fastest time: " << min(acc_all) << " us." << std::endl; 
       std::cout << "| Slowest time: " << max(acc_all) << " us." << std::endl;
+      std::cout << "| Average performance: " << 1000000/mean(acc_all) << " iterations/s." << std::endl;
+      std::cout << "| Fastest performance: " << 1000000/min(acc_all) << " iterations/s." << std::endl;
+      std::cout << "| Slowest performance: " << 1000000/max(acc_all) << " iterations/s." << std::endl;
       std::cout << "|----------------------------------------" << std::endl;
       std::cout << std::endl;
     }
@@ -123,11 +124,21 @@ void testFunction()
   }
 }
 
+void testFunction2()
+{
+  for(int i=0;i<1500;i++)
+  {
+    std::cout << ""; //Just a test code
+    
+  }
+}
+
 int main ()
 {
+  
   benchmark testBenchmark;
-  testBenchmark.add("Prvi test",100, 10);
-  testBenchmark.add("Drugi test",100, 10);
+  testBenchmark.add("Prvi test",100, 10, testFunction);
+  testBenchmark.add("Drugi test",100, 10, testFunction2);
   testBenchmark.run();
   
 
