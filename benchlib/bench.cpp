@@ -1,54 +1,33 @@
-// high_resolution_clock example
-#include <iostream>
-#include <string>
-#include <list>
-#include <ctime>
-#include <ratio>
-#include <chrono>
-#include <functional>
-#include <boost/accumulators/accumulators.hpp>
-#include <boost/accumulators/statistics/stats.hpp>
-#include <boost/accumulators/statistics/mean.hpp>
-#include <boost/accumulators/statistics/min.hpp>
-#include <boost/accumulators/statistics.hpp>
-
-
+#include"bench.h"
 
 using namespace std::chrono;
 using namespace boost::accumulators;
 
-
-struct benchmark_test{
- std::string title;
- int iterations;
- int runs;
- void (*functiontocall)();
-};
-
-class benchmark
-{
+  struct benchmark_test{
+  std::string title;
+  int iterations;
+  int runs;
+  void (*functiontocall)();
+  };
   
-  
-private:
   std::list<benchmark_test> benchmarks_list;
+ 
   
-
-public:
   
   //Adds a new benchmark test
-  void add(std::string title, int iterations, int runs, void (*function)()) 
+  void benchmark::add(std::string title, int iterations, int runs, void (*function)()) //TODO Dodati ovdje da kao argument prima funkciju koja se onda može pozivat i izvršavati
   {
     benchmark_test temp;
     temp.title=title;
     temp.iterations=iterations;
     temp.runs=runs;
-    temp.functiontocall=function;
+    temp.functiontocall=function;   
     benchmarks_list.push_back(temp);   
     
   }
   
   //Adds a new benchmark with default # of iterations and runs
-  void add(std::string title, void (*function)())
+  void benchmark::add(std::string title, void (*function)())
   {
     benchmark_test temp;
     temp.title=title;
@@ -59,7 +38,8 @@ public:
   }
   
   //Runs all added benchmark tests in the order they were added
-  void run(){
+  void benchmark::run(){
+    
     
     duration<double>time_span;
     duration<double>min_time_span;
@@ -111,37 +91,7 @@ public:
       std::cout << std::endl;
     }
   }
-};
-
-//Test function to test the function reference in the benchmark::run()
-void testFunction()
-{
-  for(int i=0;i<500;i++)
-  {
-    std::cout << ""; //Just a test code
-    
-  }
-}
-
-void testFunction2()
-{
-  for(int i=0;i<1500;i++)
-  {
-    std::cout << ""; //Just a test code
-    
-  }
-}
-
-int main ()
-{
   
-  benchmark testBenchmark;
-  testBenchmark.add("Prvi test",100, 10, testFunction);
-  testBenchmark.add("Drugi test",100, 10, testFunction2);
-  testBenchmark.run();
   
 
-  
 
-  return 0;
-}

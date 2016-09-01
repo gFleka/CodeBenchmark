@@ -6,5 +6,5 @@ CXX_FLAGS = -g   -Wall -Wextra -pedantic -std=c++11 -std=gnu++11
 
 CXX_DEFINES = 
 
-CXX_INCLUDES = 
+CXX_INCLUDES = -I/home/nino/Desktop/benchmark/benchlib 
 

@@ -8,6 +8,7 @@ set(CMAKE_DEPENDS_GENERATOR "Unix Makefiles")
 set(CMAKE_MAKEFILE_DEPENDS
   "CMakeCache.txt"
   "../CMakeLists.txt"
+  "../benchlib/CMakeLists.txt"
   "CMakeFiles/3.5.0-rc3/CMakeCCompiler.cmake"
   "CMakeFiles/3.5.0-rc3/CMakeCXXCompiler.cmake"
   "CMakeFiles/3.5.0-rc3/CMakeSystem.cmake"
@@ -38,10 +39,12 @@ set(CMAKE_MAKEFILE_OUTPUTS
 # Byproducts of CMake generate step:
 set(CMAKE_MAKEFILE_PRODUCTS
   "CMakeFiles/CMakeDirectoryInformation.cmake"
+  "benchlib/CMakeFiles/CMakeDirectoryInformation.cmake"
   )
 
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
-  "CMakeFiles/cpbenchmark2.dir/DependInfo.cmake"
   "CMakeFiles/cpbenchmark.dir/DependInfo.cmake"
+  "CMakeFiles/benchtest.dir/DependInfo.cmake"
+  "benchlib/CMakeFiles/bench.dir/DependInfo.cmake"
   )

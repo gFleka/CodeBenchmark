@@ -1,0 +1,1 @@
+/usr/bin/c++   -g   CMakeFiles/benchtest.dir/benchtest.cpp.o  -o benchtest -rdynamic benchlib/libbench.a 

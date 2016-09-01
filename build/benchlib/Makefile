@@ -80,14 +80,14 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/nino/Desktop/benchmark/build/CMakeFiles /home/nino/Desktop/benchmark/build/CMakeFiles/progress.marks
-	$(MAKE) -f CMakeFiles/Makefile2 all
+	cd /home/nino/Desktop/benchmark/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/nino/Desktop/benchmark/build/CMakeFiles /home/nino/Desktop/benchmark/build/benchlib/CMakeFiles/progress.marks
+	cd /home/nino/Desktop/benchmark/build && $(MAKE) -f CMakeFiles/Makefile2 benchlib/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/nino/Desktop/benchmark/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	$(MAKE) -f CMakeFiles/Makefile2 clean
+	cd /home/nino/Desktop/benchmark/build && $(MAKE) -f CMakeFiles/Makefile2 benchlib/clean
 .PHONY : clean
 
 # The main clean target
@@ -97,111 +97,60 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	$(MAKE) -f CMakeFiles/Makefile2 preinstall
+	cd /home/nino/Desktop/benchmark/build && $(MAKE) -f CMakeFiles/Makefile2 benchlib/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	$(MAKE) -f CMakeFiles/Makefile2 preinstall
+	cd /home/nino/Desktop/benchmark/build && $(MAKE) -f CMakeFiles/Makefile2 benchlib/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	$(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /home/nino/Desktop/benchmark/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
-#=============================================================================
-# Target rules for targets named cpbenchmark
+# Convenience name for target.
+benchlib/CMakeFiles/bench.dir/rule:
+	cd /home/nino/Desktop/benchmark/build && $(MAKE) -f CMakeFiles/Makefile2 benchlib/CMakeFiles/bench.dir/rule
+.PHONY : benchlib/CMakeFiles/bench.dir/rule
 
-# Build rule for target.
-cpbenchmark: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 cpbenchmark
-.PHONY : cpbenchmark
+# Convenience name for target.
+bench: benchlib/CMakeFiles/bench.dir/rule
 
-# fast build rule for target.
-cpbenchmark/fast:
-	$(MAKE) -f CMakeFiles/cpbenchmark.dir/build.make CMakeFiles/cpbenchmark.dir/build
-.PHONY : cpbenchmark/fast
-
-#=============================================================================
-# Target rules for targets named benchtest
-
-# Build rule for target.
-benchtest: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 benchtest
-.PHONY : benchtest
-
-# fast build rule for target.
-benchtest/fast:
-	$(MAKE) -f CMakeFiles/benchtest.dir/build.make CMakeFiles/benchtest.dir/build
-.PHONY : benchtest/fast
-
-#=============================================================================
-# Target rules for targets named bench
-
-# Build rule for target.
-bench: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 bench
 .PHONY : bench
 
 # fast build rule for target.
 bench/fast:
-	$(MAKE) -f benchlib/CMakeFiles/bench.dir/build.make benchlib/CMakeFiles/bench.dir/build
+	cd /home/nino/Desktop/benchmark/build && $(MAKE) -f benchlib/CMakeFiles/bench.dir/build.make benchlib/CMakeFiles/bench.dir/build
 .PHONY : bench/fast
 
-benchtest.o: benchtest.cpp.o
+bench.o: bench.cpp.o
 
-.PHONY : benchtest.o
-
-# target to build an object file
-benchtest.cpp.o:
-	$(MAKE) -f CMakeFiles/benchtest.dir/build.make CMakeFiles/benchtest.dir/benchtest.cpp.o
-.PHONY : benchtest.cpp.o
-
-benchtest.i: benchtest.cpp.i
-
-.PHONY : benchtest.i
-
-# target to preprocess a source file
-benchtest.cpp.i:
-	$(MAKE) -f CMakeFiles/benchtest.dir/build.make CMakeFiles/benchtest.dir/benchtest.cpp.i
-.PHONY : benchtest.cpp.i
-
-benchtest.s: benchtest.cpp.s
-
-.PHONY : benchtest.s
-
-# target to generate assembly for a file
-benchtest.cpp.s:
-	$(MAKE) -f CMakeFiles/benchtest.dir/build.make CMakeFiles/benchtest.dir/benchtest.cpp.s
-.PHONY : benchtest.cpp.s
-
-p01.o: p01.cpp.o
-
-.PHONY : p01.o
+.PHONY : bench.o
 
 # target to build an object file
-p01.cpp.o:
-	$(MAKE) -f CMakeFiles/cpbenchmark.dir/build.make CMakeFiles/cpbenchmark.dir/p01.cpp.o
-.PHONY : p01.cpp.o
+bench.cpp.o:
+	cd /home/nino/Desktop/benchmark/build && $(MAKE) -f benchlib/CMakeFiles/bench.dir/build.make benchlib/CMakeFiles/bench.dir/bench.cpp.o
+.PHONY : bench.cpp.o
 
-p01.i: p01.cpp.i
+bench.i: bench.cpp.i
 
-.PHONY : p01.i
+.PHONY : bench.i
 
 # target to preprocess a source file
-p01.cpp.i:
-	$(MAKE) -f CMakeFiles/cpbenchmark.dir/build.make CMakeFiles/cpbenchmark.dir/p01.cpp.i
-.PHONY : p01.cpp.i
+bench.cpp.i:
+	cd /home/nino/Desktop/benchmark/build && $(MAKE) -f benchlib/CMakeFiles/bench.dir/build.make benchlib/CMakeFiles/bench.dir/bench.cpp.i
+.PHONY : bench.cpp.i
 
-p01.s: p01.cpp.s
+bench.s: bench.cpp.s
 
-.PHONY : p01.s
+.PHONY : bench.s
 
 # target to generate assembly for a file
-p01.cpp.s:
-	$(MAKE) -f CMakeFiles/cpbenchmark.dir/build.make CMakeFiles/cpbenchmark.dir/p01.cpp.s
-.PHONY : p01.cpp.s
+bench.cpp.s:
+	cd /home/nino/Desktop/benchmark/build && $(MAKE) -f benchlib/CMakeFiles/bench.dir/build.make benchlib/CMakeFiles/bench.dir/bench.cpp.s
+.PHONY : bench.cpp.s
 
 # Help Target
 help:
@@ -211,15 +160,10 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... cpbenchmark"
-	@echo "... benchtest"
 	@echo "... bench"
-	@echo "... benchtest.o"
-	@echo "... benchtest.i"
-	@echo "... benchtest.s"
-	@echo "... p01.o"
-	@echo "... p01.i"
-	@echo "... p01.s"
+	@echo "... bench.o"
+	@echo "... bench.i"
+	@echo "... bench.s"
 .PHONY : help
 
 
@@ -231,6 +175,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	$(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/nino/Desktop/benchmark/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

@@ -1,0 +1,42 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../benchlib/bench.h
+iostream
+-
+string
+-
+list
+-
+ctime
+-
+ratio
+-
+chrono
+-
+functional
+-
+boost/accumulators/accumulators.hpp
+-
+boost/accumulators/statistics/stats.hpp
+-
+boost/accumulators/statistics/mean.hpp
+-
+boost/accumulators/statistics/min.hpp
+-
+boost/accumulators/statistics.hpp
+-
+
+/home/nino/Desktop/benchmark/benchtest.cpp
+bench.h
+-
+stdio.h
+-
+iostream
+-
+
